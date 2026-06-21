@@ -317,28 +317,22 @@
         <circle cx="100" cy="102" r="60" fill="none" stroke="#6f5320" stroke-width="2" opacity=".55"/>
         <circle cx="100" cy="102" r="60" fill="none" stroke="#f3dd9a" stroke-width="1" opacity=".5" transform="translate(0,-1.5)"/>
         <circle cx="100" cy="102" r="54" fill="none" stroke="#7c5d22" stroke-width="1.2" opacity=".4"/>
-        <!-- LOGO FLAMME embossé (4 langues penchées) -->
-        <g transform="translate(100 108)">
+        <!-- ÉTOILE DE DAVID embossée (deux triangles entrelacés) -->
+        <g transform="translate(100 104)">
           <!-- ombre gravée (décalée bas-droite) -->
-          <g fill="#5b4317" opacity=".85" transform="translate(2 2.6)">
-            <path d="M-21 34 C -34 13 -27 -13 -11 -31 C -17 -7 -6 10 -11 31 Z"/>
-            <path d="M-6 36 C -21 13 -15 -22 7 -46 C -3 -13 13 1 3 34 Z"/>
-            <path d="M10 36 C -3 13 1 -25 22 -49 C 13 -13 24 -1 17 34 Z"/>
-            <path d="M25 32 C 13 13 20 -13 38 -34 C 28 -10 36 4 29 30 Z"/>
+          <g fill="none" stroke="#5b4317" stroke-width="8" stroke-linejoin="round" opacity=".85" transform="translate(2.4 3)">
+            <polygon points="0,-42 36,21 -36,21"/>
+            <polygon points="0,42 36,-21 -36,-21"/>
           </g>
           <!-- liseré lumineux (décalé haut-gauche) -->
-          <g fill="#fbe6ad" opacity=".9" transform="translate(-1.8 -2.4)">
-            <path d="M-21 34 C -34 13 -27 -13 -11 -31 C -17 -7 -6 10 -11 31 Z"/>
-            <path d="M-6 36 C -21 13 -15 -22 7 -46 C -3 -13 13 1 3 34 Z"/>
-            <path d="M10 36 C -3 13 1 -25 22 -49 C 13 -13 24 -1 17 34 Z"/>
-            <path d="M25 32 C 13 13 20 -13 38 -34 C 28 -10 36 4 29 30 Z"/>
+          <g fill="none" stroke="#fbe6ad" stroke-width="8" stroke-linejoin="round" opacity=".9" transform="translate(-2 -2.6)">
+            <polygon points="0,-42 36,21 -36,21"/>
+            <polygon points="0,42 36,-21 -36,-21"/>
           </g>
-          <!-- flamme (couche principale, métal doré) -->
-          <g fill="url(#flameG)">
-            <path d="M-21 34 C -34 13 -27 -13 -11 -31 C -17 -7 -6 10 -11 31 Z"/>
-            <path d="M-6 36 C -21 13 -15 -22 7 -46 C -3 -13 13 1 3 34 Z"/>
-            <path d="M10 36 C -3 13 1 -25 22 -49 C 13 -13 24 -1 17 34 Z"/>
-            <path d="M25 32 C 13 13 20 -13 38 -34 C 28 -10 36 4 29 30 Z"/>
+          <!-- étoile (couche principale, métal doré) -->
+          <g fill="none" stroke="url(#flameG)" stroke-width="8" stroke-linejoin="round">
+            <polygon points="0,-42 36,21 -36,21"/>
+            <polygon points="0,42 36,-21 -36,-21"/>
           </g>
         </g>
       </svg>
