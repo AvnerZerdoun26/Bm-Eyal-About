@@ -15,33 +15,49 @@
     --gold:#b8985a; --gold-d:#9c7e44; --gold-soft:#d2bd8e; --gold-pale:#e9dec6;
     --ink:#352a22; --ink-2:#6a5b4d;
     --sage:#9aab86; --sage-d:#7a8a64; --blush:#f3e6df;
-    /* ---- Page de garde : teinte verte + réglage du cercle qui garde le sceau en or ---- */
-    --cover-green:#9ed29a;   /* couleur de la teinte vert clair */
-    --seal-x:50%;            /* position horizontale du sceau */
-    --seal-y:62%;            /* position verticale du sceau */
-    --seal-r:16%;            /* rayon du cercle : assez grand pour TOUT le sceau (contour doré inclus) */
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{font-family:'Cormorant Garamond',serif;color:var(--ink);background:var(--ivory);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
   body.locked{overflow:hidden;height:100vh;}
   ::selection{background:var(--gold-pale);}
-  /* ================= COVER (IMAGE ADAPTÉE À L'ÉCRAN, SCEAU OR ENTIER) ================= */
-  #cover{position:fixed;inset:0;z-index:200;overflow:hidden;cursor:pointer;background:#cfe6c8;
-    display:flex;align-items:center;justify-content:center;
+
+  /* ================= COVER ================= */
+  #cover{position:fixed;inset:0;z-index:200;overflow:hidden;
+    background:radial-gradient(130% 90% at 50% 18%,var(--terra-1),var(--terra-2) 52%,var(--terra-3));
     transition:opacity 1.1s ease,visibility 1.1s ease;}
+  #cover::after{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");}
   #cover.open{opacity:0;visibility:hidden;}
-  /* la "scène" fait exactement la taille de l'image affichée => le cercle doré s'aligne pareil sur TOUS les écrans */
-  .cover-stage{position:relative;line-height:0;transition:transform 1.1s ease;}
-  #cover.open .cover-stage{transform:scale(1.04);}
-  /* image de base : toujours entière à l'écran (s'adapte au téléphone), teintée vert clair */
-  .cover-base{display:block;width:auto;height:auto;max-width:100vw;max-height:100vh;max-height:100dvh;
-    filter:grayscale(1) brightness(1.18) contrast(.92);}
-  .green-overlay{position:absolute;inset:0;background:var(--cover-green);mix-blend-mode:multiply;pointer-events:none;}
-  /* même image ré-affichée, découpée en cercle => pastille DORÉE entière (contour compris) */
-  .cover-seal{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;
-    clip-path:circle(var(--seal-r) at var(--seal-x) var(--seal-y));pointer-events:none;}
-  .cover-open-overlay{position:absolute;inset:0;background:none;border:none;cursor:pointer;z-index:5;}
+
+  .env-flap{position:absolute;top:0;left:0;right:0;height:46vh;transform-origin:top center;z-index:1;
+    background:linear-gradient(180deg,var(--terra-1),var(--terra-2));
+    clip-path:polygon(0 0,100% 0,50% 100%);
+    box-shadow:0 14px 30px rgba(0,0,0,.18);
+    transition:transform 1s cubic-bezier(.55,0,.3,1),opacity .9s ease;}
+  .env-flap::before{content:"";position:absolute;inset:0;opacity:.45;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    clip-path:polygon(0 0,100% 0,50% 100%);}
+  #cover.open .env-flap{transform:rotateX(-115deg);opacity:0;}
+
+  .cover-inner{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 22px;
+    transition:opacity .6s ease;}
+  #cover.open .cover-inner{opacity:0;}
+  .cover-eyebrow{font-family:'Frank Ruhl Libre',serif;letter-spacing:.06em;color:#5b3322;opacity:.8;margin-bottom:4px;font-size:15px;}
+  .cover-title{font-family:'Cormorant',serif;font-weight:400;font-size:clamp(50px,11vw,112px);line-height:.95;color:#3b2113;}
+  .cover-name{font-family:'Great Vibes',cursive;font-size:clamp(36px,8vw,68px);color:#492a18;margin-top:2px;}
+
+  .seal{position:relative;width:130px;height:130px;margin:38px auto 30px;background:none;border:none;cursor:pointer;
+    filter:drop-shadow(0 12px 16px rgba(0,0,0,.35));transition:transform .35s ease;}
+  .seal:hover{transform:scale(1.06) rotate(-2deg);}
+  .seal:active{transform:scale(.96);}
+  .seal svg{width:100%;height:100%;}
+
+  .cover-cta{display:inline-flex;align-items:center;gap:11px;background:none;border:none;cursor:pointer;
+    font-family:'Cormorant',serif;letter-spacing:.36em;font-size:clamp(13px,2.6vw,16px);
+    color:#3a2114;text-transform:uppercase;padding:8px 4px;transition:gap .3s,opacity .3s;}
+  .cover-cta:hover{gap:20px;opacity:.7;}
+
   /* ================= SHARED ================= */
   .corner{position:absolute;width:clamp(190px,42vw,360px);pointer-events:none;z-index:2;line-height:0;}
   .corner.tr{top:-12px;right:-18px;}
@@ -54,6 +70,7 @@
   .rule::before{content:"✦";position:absolute;top:-10px;left:50%;transform:translateX(-50%);color:var(--gold);font-size:12px;background:transparent;}
   .kicker{letter-spacing:.42em;text-transform:uppercase;font-size:12px;color:var(--gold-d);}
   .heb{font-family:'Frank Ruhl Libre',serif;color:var(--gold-d);}
+
   /* ================= HERO ================= */
   #hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
     padding:96px 0 56px;overflow:hidden;background:radial-gradient(120% 70% at 50% 30%,#fffefb,var(--ivory) 70%);}
@@ -64,14 +81,17 @@
   .hero-name{font-family:'Cormorant',serif;font-weight:400;font-size:clamp(52px,14vw,108px);letter-spacing:.08em;color:var(--ink);line-height:.95;}
   .hero-heb{font-family:'Frank Ruhl Libre',serif;font-weight:300;font-size:clamp(24px,7vw,38px);color:var(--gold);margin-top:6px;letter-spacing:.05em;}
   .hero-sub{font-style:italic;font-size:clamp(17px,4vw,22px);color:var(--ink-2);margin-top:16px;}
+
   .countdown{display:flex;gap:clamp(6px,3vw,22px);justify-content:center;margin:42px 0 30px;flex-wrap:wrap;}
   .cd-cell{position:relative;width:clamp(66px,18vw,84px);height:clamp(86px,24vw,108px);display:flex;flex-direction:column;align-items:center;justify-content:center;}
   .cd-cell svg{position:absolute;inset:0;width:100%;height:100%;}
   .cd-num{position:relative;font-family:'Cormorant',serif;font-weight:400;font-size:clamp(26px,7.5vw,40px);color:var(--gold-d);}
   .cd-lab{position:relative;font-style:italic;font-size:12px;color:var(--ink-2);letter-spacing:.04em;margin-top:2px;}
+
   .scroll-arrow{width:48px;height:48px;border-radius:50%;border:1px solid var(--gold-soft);display:flex;align-items:center;justify-content:center;color:var(--gold);background:none;cursor:pointer;animation:bob 2.2s ease-in-out infinite;transition:background .3s,color .3s;}
   .scroll-arrow:hover{background:var(--gold);color:#fff;}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
   /* ================= PANELS ================= */
   .panel{padding:92px 0;text-align:center;position:relative;overflow:hidden;}
   .panel.cream{background:linear-gradient(180deg,var(--ivory),var(--cream) 50%,var(--ivory));}
@@ -79,10 +99,12 @@
   .heb-banner{font-family:'Frank Ruhl Libre',serif;font-weight:300;color:var(--gold-d);font-size:clamp(19px,5vw,28px);direction:rtl;margin:6px auto 14px;line-height:1.5;}
   .lead{font-size:clamp(18px,4.4vw,22px);line-height:1.9;color:var(--ink-2);max-width:640px;margin:0 auto;}
   .lead em{color:var(--ink);font-style:italic;}
+
   .fam-role{letter-spacing:.34em;text-transform:uppercase;font-size:12px;color:var(--gold-d);margin-bottom:10px;}
   .fam-names{font-family:'Great Vibes',cursive;font-size:clamp(40px,10vw,66px);color:var(--ink);line-height:1.1;}
   .fam-sibs{font-style:italic;font-size:clamp(17px,4vw,21px);color:var(--ink-2);margin-top:24px;line-height:1.8;}
   .fam-sibs em{color:var(--gold-d);}
+
   /* ================= EVENTS ================= */
   .events-grid{display:flex;flex-direction:column;gap:30px;margin-top:34px;}
   .event{position:relative;background:#fff;border-radius:8px;padding:42px 30px 36px;
@@ -99,6 +121,7 @@
   .ev-note{margin-top:14px;font-style:italic;color:var(--sage-d);font-size:16px;}
   .ev-map{display:inline-block;margin-top:18px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-d);text-decoration:none;border-bottom:1px solid var(--gold-pale);padding-bottom:3px;transition:color .25s,border-color .25s;}
   .ev-map:hover{color:var(--ink);border-color:var(--gold);}
+
   /* ================= RSVP ================= */
   #rsvp{background:linear-gradient(180deg,var(--cream),var(--cream-2));padding:96px 0;}
   .form-card{max-width:560px;margin:34px auto 0;text-align:left;}
@@ -125,15 +148,18 @@
   .form-msg{text-align:center;margin-top:18px;font-style:italic;font-size:17px;min-height:24px;}
   .form-msg.ok{color:var(--sage-d);}
   .form-msg.err{color:#b5563c;}
+
   footer{text-align:center;padding:58px 20px 64px;background:var(--ivory);position:relative;overflow:hidden;}
   .foot-mono{font-family:'Great Vibes',cursive;font-size:46px;color:var(--gold-soft);}
   .foot-heb{font-family:'Frank Ruhl Libre',serif;color:var(--gold);font-size:16px;margin-top:4px;}
   .foot-sub{font-style:italic;margin-top:8px;font-size:15px;color:var(--ink-2);}
+
   @media(max-width:520px){.corner{width:200px;}.event{padding:36px 22px 32px;}}
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}.reveal{opacity:1;transform:none;}}
 </style>
 </head>
 <body class="locked">
+
 <!-- ============ SVG DEFS (florales réutilisables) ============ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -149,6 +175,7 @@
     <radialGradient id="leafG2" cx="35%" cy="25%" r="85%">
       <stop offset="0%" stop-color="#c3cfb2"/><stop offset="100%" stop-color="#94a47c"/>
     </radialGradient>
+
     <!-- une pivoine -->
     <g id="peony">
       <!-- couronne externe -->
@@ -178,6 +205,7 @@
         <circle cx="6" cy="-3" r="1.6"/><circle cx="-6" cy="-3" r="1.6"/><circle cx="0" cy="5" r="1.6"/>
       </g>
     </g>
+
     <!-- brin d'eucalyptus -->
     <g id="euc">
       <path d="M0 0 Q 30 -20 78 -34" fill="none" stroke="#8a9a72" stroke-width="1.4"/>
@@ -193,6 +221,7 @@
         <ellipse cx="56" cy="-13" rx="10" ry="5.5" transform="rotate(8 56 -13)"/>
       </g>
     </g>
+
     <!-- bouquet de coin complet -->
     <g id="bouquet">
       <use href="#euc" transform="translate(150 120) rotate(150) scale(1.15)"/>
@@ -208,20 +237,43 @@
     </g>
   </defs>
 </svg>
-<!-- ================= COVER (IMAGE EN PAGE DE GARDE) ================= -->
+
+<!-- ================= COVER ================= -->
 <div id="cover">
-  <div class="cover-stage">
-    <img class="cover-base" src="image.jpg" alt="Bar Mitzvah — Voir l'invitation" />
-    <div class="green-overlay"></div>
-    <!-- même fichier => le cercle dévoile la VRAIE pastille dorée, contour compris -->
-    <img class="cover-seal" src="image.jpg" alt="" aria-hidden="true" />
-    <button class="cover-open-overlay" id="openBtn" aria-label="Voir l'invitation"></button>
+  <div class="env-flap"></div>
+  <div class="cover-inner">
+    <div class="cover-eyebrow">בס״ד</div>
+    <div class="cover-title">Bar Mitzvah</div>
+    <div class="cover-name">Eyal About</div>
+
+    <button class="seal" id="sealBtn" aria-label="Ouvrir l'invitation">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="wax" cx="36%" cy="30%" r="78%">
+            <stop offset="0%" stop-color="var(--wax-1)"/><stop offset="46%" stop-color="var(--wax-2)"/><stop offset="100%" stop-color="var(--wax-3)"/>
+          </radialGradient>
+        </defs>
+        <path d="M60 5c12 1 19 9 28 11s16 11 19 24-3 22-2 33 5 21-7 29-23 3-34 8-22 9-33 1-7-21-13-31S1 70 6 56 21 39 24 27 40 7 60 5Z" fill="url(#wax)"/>
+        <ellipse cx="48" cy="34" rx="20" ry="12" fill="#fff" opacity=".18"/>
+        <circle cx="60" cy="60" r="38" fill="none" stroke="#8c6b2b" stroke-width="1.3" opacity=".65"/>
+        <circle cx="60" cy="60" r="42" fill="none" stroke="#d8b65c" stroke-width="1" opacity=".5"/>
+        <g stroke="#7a5c24" stroke-width="2.6" fill="none" stroke-linecap="round">
+          <path d="M57 42c-10 8-15 17-9 28 3 4 8 6 12 4"/>
+          <path d="M64 44c-7 8-9 18-3 26"/>
+          <path d="M71 49c-5 7-6 15-1 22"/>
+        </g>
+      </svg>
+    </button>
+
+    <button class="cover-cta" id="openBtn">Voir l'invitation ›</button>
   </div>
 </div>
+
 <!-- ================= HERO ================= -->
 <section id="hero">
   <svg class="corner tr" viewBox="0 0 300 220"><use href="#bouquet"/></svg>
   <svg class="corner bl" viewBox="0 0 300 220"><use href="#bouquet"/></svg>
+
   <div class="bsd">בס״ד</div>
   <div class="monogram">
     <svg viewBox="0 0 160 130">
@@ -233,16 +285,19 @@
   <h1 class="hero-name">EYAL</h1>
   <div class="hero-heb">אייל אבוט</div>
   <div class="hero-sub">Dimanche 18 Avril 2027 · Marseille</div>
+
   <div class="countdown" id="countdown">
     <div class="cd-cell"><svg viewBox="0 0 84 108"><path d="M42 6C20 30 20 78 42 102 64 78 64 30 42 6Z" fill="none" stroke="var(--gold-soft)" stroke-width="1.2"/></svg><div class="cd-num" id="cd-d">00</div><div class="cd-lab">Jours</div></div>
     <div class="cd-cell"><svg viewBox="0 0 84 108"><path d="M42 6C20 30 20 78 42 102 64 78 64 30 42 6Z" fill="none" stroke="var(--gold-soft)" stroke-width="1.2"/></svg><div class="cd-num" id="cd-h">00</div><div class="cd-lab">Heures</div></div>
     <div class="cd-cell"><svg viewBox="0 0 84 108"><path d="M42 6C20 30 20 78 42 102 64 78 64 30 42 6Z" fill="none" stroke="var(--gold-soft)" stroke-width="1.2"/></svg><div class="cd-num" id="cd-m">00</div><div class="cd-lab">Minutes</div></div>
     <div class="cd-cell"><svg viewBox="0 0 84 108"><path d="M42 6C20 30 20 78 42 102 64 78 64 30 42 6Z" fill="none" stroke="var(--gold-soft)" stroke-width="1.2"/></svg><div class="cd-num" id="cd-s">00</div><div class="cd-lab">Secondes</div></div>
   </div>
+
   <button class="scroll-arrow" onclick="document.getElementById('intro').scrollIntoView()" aria-label="Découvrir">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg>
   </button>
 </section>
+
 <!-- ================= INTRO / MÉMOIRE ================= -->
 <section class="panel" id="intro">
   <div class="wrap reveal">
@@ -253,6 +308,7 @@
     <p class="lead">En ce jour si particulier, nos pensées se tournent également vers ses grands-parents et arrière-grands-parents qui nous ont quittés. Leur souvenir reste vivant dans nos cœurs et l'accompagne aujourd'hui plus que jamais. <em>Que leur mémoire soit une bénédiction</em> et qu'ils veillent sur lui en ce jour précieux.</p>
   </div>
 </section>
+
 <!-- ================= FAMILLE ================= -->
 <section class="panel cream">
   <svg class="corner tl" viewBox="0 0 300 220" style="opacity:.85"><use href="#bouquet"/></svg>
@@ -263,6 +319,7 @@
     <p class="fam-sibs">Aux côtés de ses frères et sœurs,<br><em>Eden, Yona, Orli &amp; Aaron,</em><br>Eyal partagera ce moment unique en famille.</p>
   </div>
 </section>
+
 <!-- ================= ÉVÉNEMENTS ================= -->
 <section class="panel" id="events">
   <div class="wrap">
@@ -271,6 +328,7 @@
       <h2>Les Cérémonies</h2>
       <div class="rule"></div>
     </div>
+
     <div class="events-grid">
       <div class="event reveal">
         <div class="ev-heb">תְּפִילִּין</div>
@@ -283,6 +341,7 @@
         <div class="ev-note">L'office sera suivi d'un petit déjeuner puis d'un brunch.</div>
         <a class="ev-map" href="https://maps.google.com/?q=62+Chemin+des+Campanules+13012+Marseille" target="_blank" rel="noopener">Itinéraire</a>
       </div>
+
       <div class="event reveal">
         <div class="ev-heb">פָּרָשָׁה</div>
         <div class="ev-tag">Lecture de la Paracha · Chabbat de Pessah</div>
@@ -297,6 +356,7 @@
     </div>
   </div>
 </section>
+
 <!-- ================= RSVP ================= -->
 <section id="rsvp">
   <svg class="corner bl" viewBox="0 0 300 220" style="opacity:.8"><use href="#bouquet"/></svg>
@@ -306,6 +366,7 @@
       <h2>R.S.V.P.</h2>
       <div class="rule"></div>
     </div>
+
     <div class="form-card reveal">
       <div class="field">
         <label class="fl" for="nom">Nom</label>
@@ -315,6 +376,7 @@
         <label class="fl" for="prenom">Prénom (Mr &amp; Mme)</label>
         <input type="text" id="prenom" placeholder="Prénom(s)" />
       </div>
+
       <div class="ev-block">
         <div class="ev-block-head"><span class="ev-block-title">Mise des Téfilines</span><span class="ev-block-date">Dim. 18/04</span></div>
         <div class="choices">
@@ -325,6 +387,7 @@
           <option value="1">1 Personne</option><option value="2">2 Personnes</option><option value="3">3 Personnes</option><option value="4">4 Personnes</option><option value="5">5 Personnes</option><option value="6">6 Personnes</option><option value="7">7 Personnes</option><option value="8">8 Personnes</option>
         </select>
       </div>
+
       <div class="ev-block">
         <div class="ev-block-head"><span class="ev-block-title">Lecture de la Paracha</span><span class="ev-block-date">Sam. 24/04</span></div>
         <div class="choices">
@@ -335,25 +398,30 @@
           <option value="1">1 Personne</option><option value="2">2 Personnes</option><option value="3">3 Personnes</option><option value="4">4 Personnes</option><option value="5">5 Personnes</option><option value="6">6 Personnes</option><option value="7">7 Personnes</option><option value="8">8 Personnes</option>
         </select>
       </div>
+
       <div class="field">
         <label class="fl" for="mot">Un petit mot pour Eyal &amp; sa famille…</label>
         <textarea id="mot" placeholder="Votre message…"></textarea>
       </div>
+
       <button class="submit-btn" id="submitBtn">Envoyer ma réponse</button>
       <div class="form-msg" id="formMsg"></div>
     </div>
   </div>
 </section>
+
 <footer>
   <svg class="corner tr" viewBox="0 0 300 220" style="opacity:.5"><use href="#bouquet"/></svg>
   <div class="foot-mono">Eyal</div>
   <div class="foot-heb">מַזָּל טוֹב</div>
   <div class="foot-sub">Avec amour — Famille About · Marseille 2027</div>
 </footer>
+
 <script>
 /* ===== GOOGLE SHEETS : colle ici l'URL de ton Apps Script Web App (.../exec) ===== */
 const SCRIPT_URL = "REMPLACE_PAR_TON_URL_GOOGLE_APPS_SCRIPT";
-/* ---- Ouverture de la page de garde (image) ---- */
+
+/* ---- Ouverture enveloppe ---- */
 function openInvite(){
   const c=document.getElementById('cover');
   c.classList.add('open');
@@ -361,8 +429,9 @@ function openInvite(){
   setTimeout(()=>{c.style.display='none';},1150);
   document.getElementById('hero').scrollIntoView();
 }
-/* toute l'image (page de garde) est cliquable */
-document.getElementById('cover').addEventListener('click',openInvite);
+document.getElementById('sealBtn').addEventListener('click',openInvite);
+document.getElementById('openBtn').addEventListener('click',openInvite);
+
 /* ---- Compte à rebours (cible 18/04/2027 09:00) ---- */
 const target=new Date('2027-04-18T09:00:00').getTime();
 function tick(){
@@ -374,9 +443,11 @@ function tick(){
   document.getElementById('cd-s').textContent=z(Math.floor(diff%6e4/1e3));
 }
 tick();setInterval(tick,1000);
+
 /* ---- Apparitions au défilement ---- */
 const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
 /* ---- Envoi RSVP vers Google Sheets ---- */
 const btn=document.getElementById('submitBtn'), msg=document.getElementById('formMsg');
 btn.addEventListener('click',async()=>{
