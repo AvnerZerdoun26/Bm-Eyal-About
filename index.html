@@ -263,38 +263,82 @@
     <div class="cover-title">Bar Mitzvah</div>
     <div class="cover-name">Eyal About</div>
     <button class="seal" id="sealBtn" aria-label="Ouvrir l'invitation">
-      <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <radialGradient id="wax" cx="36%" cy="28%" r="82%">
-            <stop offset="0%" stop-color="var(--wax-1)"/><stop offset="46%" stop-color="var(--wax-2)"/><stop offset="100%" stop-color="var(--wax-3)"/>
+          <!-- cire dorée bombée -->
+          <radialGradient id="wax" cx="38%" cy="30%" r="80%">
+            <stop offset="0%" stop-color="#f8e3a0"/>
+            <stop offset="34%" stop-color="#e3c065"/>
+            <stop offset="70%" stop-color="#b88e36"/>
+            <stop offset="100%" stop-color="#6f5120"/>
           </radialGradient>
-          <radialGradient id="waxIn" cx="42%" cy="36%" r="72%">
-            <stop offset="0%" stop-color="#e8c873"/><stop offset="100%" stop-color="#a9863a"/>
+          <!-- disque central gravé (lumière venant du haut) -->
+          <radialGradient id="disc" cx="50%" cy="60%" r="65%">
+            <stop offset="0%" stop-color="#e6c46e"/>
+            <stop offset="72%" stop-color="#c79f49"/>
+            <stop offset="100%" stop-color="#9b7731"/>
           </radialGradient>
+          <linearGradient id="flameG" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ecd081"/><stop offset="1" stop-color="#a9823a"/>
+          </linearGradient>
+          <filter id="blurS" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3"/></filter>
         </defs>
-        <!-- blob de cire irrégulier (bosses) -->
-        <path d="M80 7 C95 5 104 12 116 16 C131 21 142 30 145 46 C148 61 142 73 145 88 C148 104 144 118 130 127 C118 135 104 133 90 138 C75 143 58 145 44 137 C30 129 26 114 18 102 C9 88 8 72 12 58 C16 43 22 30 36 22 C49 14 62 16 72 12 C75 11 77 8 80 7 Z" fill="url(#wax)"/>
-        <!-- reflet glossy haut-gauche -->
-        <ellipse cx="56" cy="40" rx="30" ry="16" fill="#fff" opacity=".22"/>
-        <!-- disque embossé central -->
-        <circle cx="80" cy="80" r="48" fill="url(#waxIn)" opacity=".55"/>
-        <circle cx="80" cy="80" r="48" fill="none" stroke="#7c5d22" stroke-width="1.6" opacity=".6"/>
-        <circle cx="80" cy="80" r="52" fill="none" stroke="#efd58a" stroke-width="1" opacity=".5"/>
+        <!-- blob de cire irrégulier (bords coulés) -->
+        <path d="M100 10
+          C124 8 142 14 156 28
+          C171 43 178 58 187 74
+          C193 86 191 106 186 121
+          C180 139 168 156 149 166
+          C133 175 114 171 98 177
+          C80 184 59 181 43 170
+          C27 159 21 142 13 127
+          C5 112 7 93 12 77
+          C17 59 25 41 43 30
+          C58 21 77 20 89 14
+          C93 12 96 10 100 10 Z" fill="url(#wax)"/>
+        <!-- ombre interne du rebord (donne le volume) -->
+        <path d="M100 10
+          C124 8 142 14 156 28
+          C171 43 178 58 187 74
+          C193 86 191 106 186 121
+          C180 139 168 156 149 166
+          C133 175 114 171 98 177
+          C80 184 59 181 43 170
+          C27 159 21 142 13 127
+          C5 112 7 93 12 77
+          C17 59 25 41 43 30
+          C58 21 77 20 89 14
+          C93 12 96 10 100 10 Z" fill="none" stroke="#5e441a" stroke-width="3" opacity=".35" filter="url(#blurS)"/>
+        <!-- reflets glossy (lumière haut-gauche) -->
+        <ellipse cx="66" cy="48" rx="34" ry="18" fill="#fff" opacity=".22" filter="url(#blurS)"/>
+        <ellipse cx="58" cy="42" rx="12" ry="6" fill="#fff" opacity=".35"/>
+        <!-- disque central gravé -->
+        <circle cx="100" cy="102" r="60" fill="url(#disc)"/>
+        <circle cx="100" cy="102" r="60" fill="none" stroke="#6f5320" stroke-width="2" opacity=".55"/>
+        <circle cx="100" cy="102" r="60" fill="none" stroke="#f3dd9a" stroke-width="1" opacity=".5" transform="translate(0,-1.5)"/>
+        <circle cx="100" cy="102" r="54" fill="none" stroke="#7c5d22" stroke-width="1.2" opacity=".4"/>
         <!-- LOGO FLAMME embossé (4 langues penchées) -->
-        <g transform="translate(80 84)">
+        <g transform="translate(100 108)">
           <!-- ombre gravée (décalée bas-droite) -->
-          <g fill="#6e5220" opacity=".9" transform="translate(1 1.4)">
-            <path d="M-15 24 C -24 9 -19 -9 -8 -22 C -12 -5 -4 7 -8 22 Z"/>
-            <path d="M-4 26 C -15 9 -11 -16 5 -33 C -2 -9 9 1 2 24 Z"/>
-            <path d="M7 26 C -2 9 1 -18 16 -35 C 9 -9 17 -1 12 24 Z"/>
-            <path d="M18 23 C 9 9 14 -9 27 -24 C 20 -7 26 3 21 21 Z"/>
+          <g fill="#5b4317" opacity=".85" transform="translate(2 2.6)">
+            <path d="M-21 34 C -34 13 -27 -13 -11 -31 C -17 -7 -6 10 -11 31 Z"/>
+            <path d="M-6 36 C -21 13 -15 -22 7 -46 C -3 -13 13 1 3 34 Z"/>
+            <path d="M10 36 C -3 13 1 -25 22 -49 C 13 -13 24 -1 17 34 Z"/>
+            <path d="M25 32 C 13 13 20 -13 38 -34 C 28 -10 36 4 29 30 Z"/>
           </g>
-          <!-- reflet clair -->
-          <g fill="#f3dd97" opacity=".9">
-            <path d="M-15 24 C -24 9 -19 -9 -8 -22 C -12 -5 -4 7 -8 22 Z"/>
-            <path d="M-4 26 C -15 9 -11 -16 5 -33 C -2 -9 9 1 2 24 Z"/>
-            <path d="M7 26 C -2 9 1 -18 16 -35 C 9 -9 17 -1 12 24 Z"/>
-            <path d="M18 23 C 9 9 14 -9 27 -24 C 20 -7 26 3 21 21 Z"/>
+          <!-- liseré lumineux (décalé haut-gauche) -->
+          <g fill="#fbe6ad" opacity=".9" transform="translate(-1.8 -2.4)">
+            <path d="M-21 34 C -34 13 -27 -13 -11 -31 C -17 -7 -6 10 -11 31 Z"/>
+            <path d="M-6 36 C -21 13 -15 -22 7 -46 C -3 -13 13 1 3 34 Z"/>
+            <path d="M10 36 C -3 13 1 -25 22 -49 C 13 -13 24 -1 17 34 Z"/>
+            <path d="M25 32 C 13 13 20 -13 38 -34 C 28 -10 36 4 29 30 Z"/>
+          </g>
+          <!-- flamme (couche principale, métal doré) -->
+          <g fill="url(#flameG)">
+            <path d="M-21 34 C -34 13 -27 -13 -11 -31 C -17 -7 -6 10 -11 31 Z"/>
+            <path d="M-6 36 C -21 13 -15 -22 7 -46 C -3 -13 13 1 3 34 Z"/>
+            <path d="M10 36 C -3 13 1 -25 22 -49 C 13 -13 24 -1 17 34 Z"/>
+            <path d="M25 32 C 13 13 20 -13 38 -34 C 28 -10 36 4 29 30 Z"/>
           </g>
         </g>
       </svg>
