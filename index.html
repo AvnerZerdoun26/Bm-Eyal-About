@@ -263,76 +263,37 @@
     <div class="cover-title">Bar Mitzvah</div>
     <div class="cover-name">Eyal About</div>
     <button class="seal" id="sealBtn" aria-label="Ouvrir l'invitation">
+      <!-- ===== SCEAU : style 3 — cordage tressé ===== -->
       <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <!-- cire dorée bombée -->
-          <radialGradient id="wax" cx="38%" cy="30%" r="80%">
-            <stop offset="0%" stop-color="#f8e3a0"/>
-            <stop offset="34%" stop-color="#e3c065"/>
-            <stop offset="70%" stop-color="#b88e36"/>
-            <stop offset="100%" stop-color="#6f5120"/>
+          <radialGradient id="wax3" cx="40%" cy="32%" r="78%">
+            <stop offset="0%" stop-color="#f6df9a"/><stop offset="40%" stop-color="#d6ad57"/>
+            <stop offset="78%" stop-color="#a87f30"/><stop offset="100%" stop-color="#6a4d1d"/>
           </radialGradient>
-          <!-- disque central gravé (lumière venant du haut) -->
-          <radialGradient id="disc" cx="50%" cy="60%" r="65%">
-            <stop offset="0%" stop-color="#e6c46e"/>
-            <stop offset="72%" stop-color="#c79f49"/>
-            <stop offset="100%" stop-color="#9b7731"/>
+          <radialGradient id="face3" cx="50%" cy="55%" r="62%">
+            <stop offset="0%" stop-color="#e9c977"/><stop offset="100%" stop-color="#a47e36"/>
           </radialGradient>
-          <linearGradient id="flameG" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#ecd081"/><stop offset="1" stop-color="#a9823a"/>
+          <linearGradient id="star3" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffeebb"/><stop offset="1" stop-color="#a9823a"/>
           </linearGradient>
-          <filter id="blurS" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="3"/></filter>
         </defs>
-        <!-- blob de cire irrégulier (bords coulés) -->
-        <path d="M100 10
-          C124 8 142 14 156 28
-          C171 43 178 58 187 74
-          C193 86 191 106 186 121
-          C180 139 168 156 149 166
-          C133 175 114 171 98 177
-          C80 184 59 181 43 170
-          C27 159 21 142 13 127
-          C5 112 7 93 12 77
-          C17 59 25 41 43 30
-          C58 21 77 20 89 14
-          C93 12 96 10 100 10 Z" fill="url(#wax)"/>
-        <!-- ombre interne du rebord (donne le volume) -->
-        <path d="M100 10
-          C124 8 142 14 156 28
-          C171 43 178 58 187 74
-          C193 86 191 106 186 121
-          C180 139 168 156 149 166
-          C133 175 114 171 98 177
-          C80 184 59 181 43 170
-          C27 159 21 142 13 127
-          C5 112 7 93 12 77
-          C17 59 25 41 43 30
-          C58 21 77 20 89 14
-          C93 12 96 10 100 10 Z" fill="none" stroke="#5e441a" stroke-width="3" opacity=".35" filter="url(#blurS)"/>
-        <!-- reflets glossy (lumière haut-gauche) -->
-        <ellipse cx="66" cy="48" rx="34" ry="18" fill="#fff" opacity=".22" filter="url(#blurS)"/>
-        <ellipse cx="58" cy="42" rx="12" ry="6" fill="#fff" opacity=".35"/>
+        <!-- pastille de cire dorée -->
+        <circle cx="100" cy="100" r="94" fill="url(#wax3)"/>
+        <ellipse cx="70" cy="52" rx="38" ry="18" fill="#fff" opacity=".2"/>
+        <!-- bordure type corde tressée -->
+        <circle cx="100" cy="100" r="84" fill="none" stroke="#7a5a22" stroke-width="9" opacity=".25" stroke-dasharray="7 5"/>
+        <circle cx="100" cy="100" r="84" fill="none" stroke="#8a6428" stroke-width="10"/>
+        <circle cx="100" cy="100" r="84" fill="none" stroke="#f1d68f" stroke-width="10" stroke-dasharray="6 9" opacity=".8"/>
         <!-- disque central gravé -->
-        <circle cx="100" cy="102" r="60" fill="url(#disc)"/>
-        <circle cx="100" cy="102" r="60" fill="none" stroke="#6f5320" stroke-width="2" opacity=".55"/>
-        <circle cx="100" cy="102" r="60" fill="none" stroke="#f3dd9a" stroke-width="1" opacity=".5" transform="translate(0,-1.5)"/>
-        <circle cx="100" cy="102" r="54" fill="none" stroke="#7c5d22" stroke-width="1.2" opacity=".4"/>
-        <!-- ÉTOILE DE DAVID embossée (deux triangles entrelacés) -->
-        <g transform="translate(100 104)">
-          <!-- ombre gravée (décalée bas-droite) -->
-          <g fill="none" stroke="#5b4317" stroke-width="8" stroke-linejoin="round" opacity=".85" transform="translate(2.4 3)">
-            <polygon points="0,-42 36,21 -36,21"/>
-            <polygon points="0,42 36,-21 -36,-21"/>
+        <circle cx="100" cy="100" r="70" fill="url(#face3)"/>
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#6f5320" stroke-width="2" opacity=".5"/>
+        <!-- Étoile de David embossée -->
+        <g transform="translate(100 100)">
+          <g fill="none" stroke="#5b4317" stroke-width="7.5" stroke-linejoin="round" opacity=".8" transform="translate(2 2.6)">
+            <polygon points="0,-42 36,21 -36,21"/><polygon points="0,42 36,-21 -36,-21"/>
           </g>
-          <!-- liseré lumineux (décalé haut-gauche) -->
-          <g fill="none" stroke="#fbe6ad" stroke-width="8" stroke-linejoin="round" opacity=".9" transform="translate(-2 -2.6)">
-            <polygon points="0,-42 36,21 -36,21"/>
-            <polygon points="0,42 36,-21 -36,-21"/>
-          </g>
-          <!-- étoile (couche principale, métal doré) -->
-          <g fill="none" stroke="url(#flameG)" stroke-width="8" stroke-linejoin="round">
-            <polygon points="0,-42 36,21 -36,21"/>
-            <polygon points="0,42 36,-21 -36,-21"/>
+          <g fill="none" stroke="url(#star3)" stroke-width="7.5" stroke-linejoin="round">
+            <polygon points="0,-42 36,21 -36,21"/><polygon points="0,42 36,-21 -36,-21"/>
           </g>
         </g>
       </svg>
