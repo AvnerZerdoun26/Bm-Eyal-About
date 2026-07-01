@@ -249,10 +249,6 @@ section[id],.event[id]{scroll-margin-top:74px;}
 </style>
 </head>
 <body class="locked">
-<!-- ============ SVG DEFS — MOTIF FLORAL ENRICHI ============
-     Eucalyptus (silver dollar + seeded) + gypsophile fournie
-     + NOUVEAU : roses/pivoines, renoncules et anémones
-     dans une palette ivoire / blush / or pour un bouquet plus riche. -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
 <defs>
 <radialGradient id="eucaLeaf" cx="34%" cy="24%" r="92%"><stop offset="0%" stop-color="#dfe4be"/><stop offset="55%" stop-color="#b3bf86"/><stop offset="100%" stop-color="#8c9a5f"/></radialGradient>
@@ -261,8 +257,6 @@ section[id],.event[id]{scroll-margin-top:74px;}
 <radialGradient id="eucaSeedG" cx="38%" cy="32%" r="72%"><stop offset="0%" stop-color="#cdd3a4"/><stop offset="100%" stop-color="#8a9762"/></radialGradient>
 <radialGradient id="gypPetal" cx="40%" cy="34%" r="80%"><stop offset="0%" stop-color="#fffdf7"/><stop offset="68%" stop-color="#f7efdc"/><stop offset="100%" stop-color="#ecdcc0"/></radialGradient>
 <radialGradient id="gypCore" cx="48%" cy="42%" r="66%"><stop offset="0%" stop-color="#f2d495"/><stop offset="100%" stop-color="#c9a44c"/></radialGradient>
-
-<!-- ===== nouvelles fleurs ===== -->
 <radialGradient id="roseFill" cx="42%" cy="34%" r="78%"><stop offset="0%" stop-color="#fdf3ef"/><stop offset="46%" stop-color="#f6e1d8"/><stop offset="100%" stop-color="#e7c3b4"/></radialGradient>
 <radialGradient id="roseFillB" cx="42%" cy="34%" r="78%"><stop offset="0%" stop-color="#fbeede"/><stop offset="48%" stop-color="#f1d8b6"/><stop offset="100%" stop-color="#dcb37e"/></radialGradient>
 <radialGradient id="roseHeart" cx="50%" cy="46%" r="70%"><stop offset="0%" stop-color="#f5d9c8"/><stop offset="100%" stop-color="#d9a98f"/></radialGradient>
@@ -271,12 +265,10 @@ section[id],.event[id]{scroll-margin-top:74px;}
 <radialGradient id="anemPetal" cx="42%" cy="34%" r="80%"><stop offset="0%" stop-color="#fffdf9"/><stop offset="70%" stop-color="#f7efe1"/><stop offset="100%" stop-color="#e8dcc6"/></radialGradient>
 <radialGradient id="anemCore" cx="48%" cy="44%" r="62%"><stop offset="0%" stop-color="#6a5a3e"/><stop offset="60%" stop-color="#4a3c28"/><stop offset="100%" stop-color="#2c2418"/></radialGradient>
 <filter id="petalSoft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation=".5"/></filter>
-
 <g id="eucaLeafShape">
 <path d="M0 0 C 4 -6.4 11 -8.4 18 -8 C 12 -3 11 3 18 8 C 11 8.4 4 6.4 0 0 Z" />
 <path d="M2 0 L 15 0" fill="none" stroke="#788a52" stroke-width=".6" opacity=".5"/>
 </g>
-
 <g id="eucaSprig">
 <path d="M0 0 Q 46 -10 102 -30" fill="none" stroke="#94a26d" stroke-width="2" stroke-linecap="round"/>
 <use href="#eucaLeafShape" fill="url(#eucaLeaf)"  transform="translate(15 -11) rotate(-126) scale(1.05)"/>
@@ -290,7 +282,6 @@ section[id],.event[id]{scroll-margin-top:74px;}
 <use href="#eucaLeafShape" fill="url(#eucaLeafB)" transform="translate(75 -16) rotate(-60) scale(.78)"/>
 <ellipse cx="106" cy="-33" rx="5.4" ry="4.6" fill="url(#eucaLeaf)"/>
 </g>
-
 <g id="eucaSeed">
 <path d="M0 0 Q 18 -6 42 -14" fill="none" stroke="#9aa873" stroke-width="1.5" stroke-linecap="round"/>
 <g fill="url(#eucaSeedG)" stroke="#7e8c57" stroke-width=".4">
@@ -301,7 +292,6 @@ section[id],.event[id]{scroll-margin-top:74px;}
 <circle cx="8" cy="-3.6" r="1"/><circle cx="16" cy="-8.6" r="1.1"/><circle cx="32" cy="-13" r="1"/>
 </g>
 </g>
-
 <g id="gypFloret">
 <g fill="url(#gypPetal)" stroke="#e8d8bb" stroke-width=".4">
 <circle cx="0" cy="-3.4" r="2.5"/><circle cx="3.3" cy="-1" r="2.5"/><circle cx="2.05" cy="2.9" r="2.5"/>
@@ -309,7 +299,6 @@ section[id],.event[id]{scroll-margin-top:74px;}
 </g>
 <circle r="1.5" fill="url(#gypCore)"/>
 </g>
-
 <g id="gypSpray">
 <g fill="none" stroke="#b9c293" stroke-width="1">
 <path d="M0 0 Q 6 -11 11 -22"/><path d="M0 0 Q -4 -13 -7 -24"/><path d="M0 0 Q 15 -9 24 -16"/>
@@ -326,31 +315,24 @@ section[id],.event[id]{scroll-margin-top:74px;}
 <use href="#gypFloret" transform="translate(-2 -14) scale(.74)"/>
 <use href="#gypFloret" transform="translate(8 -4) scale(.66)"/>
 </g>
-
-<!-- ===== ROSE / PIVOINE (pétales en spirale) ===== -->
 <g id="rose">
 <circle r="26" fill="url(#roseFill)"/>
 <g stroke="#dcae97" stroke-width=".5" filter="url(#petalSoft)">
-<!-- couronne externe -->
 <path d="M0 -26 C 13 -26 22 -16 21 -4 C 14 -10 6 -12 0 -11 C -6 -12 -14 -10 -21 -4 C -22 -16 -13 -26 0 -26 Z" fill="url(#roseFillB)" transform="rotate(0)"/>
 <path d="M0 -26 C 13 -26 22 -16 21 -4 C 14 -10 6 -12 0 -11 C -6 -12 -14 -10 -21 -4 C -22 -16 -13 -26 0 -26 Z" fill="url(#roseFill)" transform="rotate(72)"/>
 <path d="M0 -26 C 13 -26 22 -16 21 -4 C 14 -10 6 -12 0 -11 C -6 -12 -14 -10 -21 -4 C -22 -16 -13 -26 0 -26 Z" fill="url(#roseFillB)" transform="rotate(144)"/>
 <path d="M0 -26 C 13 -26 22 -16 21 -4 C 14 -10 6 -12 0 -11 C -6 -12 -14 -10 -21 -4 C -22 -16 -13 -26 0 -26 Z" fill="url(#roseFill)" transform="rotate(216)"/>
 <path d="M0 -26 C 13 -26 22 -16 21 -4 C 14 -10 6 -12 0 -11 C -6 -12 -14 -10 -21 -4 C -22 -16 -13 -26 0 -26 Z" fill="url(#roseFillB)" transform="rotate(288)"/>
-<!-- couronne médiane -->
 <path d="M0 -17 C 9 -17 15 -10 14 -2 C 9 -6 4 -7 0 -7 C -4 -7 -9 -6 -14 -2 C -15 -10 -9 -17 0 -17 Z" fill="url(#roseFill)" transform="rotate(36)"/>
 <path d="M0 -17 C 9 -17 15 -10 14 -2 C 9 -6 4 -7 0 -7 C -4 -7 -9 -6 -14 -2 C -15 -10 -9 -17 0 -17 Z" fill="url(#roseFillB)" transform="rotate(108)"/>
 <path d="M0 -17 C 9 -17 15 -10 14 -2 C 9 -6 4 -7 0 -7 C -4 -7 -9 -6 -14 -2 C -15 -10 -9 -17 0 -17 Z" fill="url(#roseFill)" transform="rotate(180)"/>
 <path d="M0 -17 C 9 -17 15 -10 14 -2 C 9 -6 4 -7 0 -7 C -4 -7 -9 -6 -14 -2 C -15 -10 -9 -17 0 -17 Z" fill="url(#roseFillB)" transform="rotate(252)"/>
 <path d="M0 -17 C 9 -17 15 -10 14 -2 C 9 -6 4 -7 0 -7 C -4 -7 -9 -6 -14 -2 C -15 -10 -9 -17 0 -17 Z" fill="url(#roseFill)" transform="rotate(324)"/>
 </g>
-<!-- coeur enroulé -->
 <circle r="9" fill="url(#roseHeart)"/>
 <path d="M-5 1 C -5 -5 0 -7 4 -4 C 7 -2 6 3 2 4 C -1 5 -4 4 -5 1 Z" fill="none" stroke="#cf9d83" stroke-width="1.3" opacity=".8"/>
 <path d="M-3 0 C -3 -3 0 -4 2 -2 C 3 -1 3 2 1 2 C -1 3 -3 2 -3 0 Z" fill="none" stroke="#c8927a" stroke-width="1.1" opacity=".7"/>
 </g>
-
-<!-- ===== RENONCULE (ranunculus, pétales serrés) ===== -->
 <g id="ranun">
 <circle r="20" fill="url(#ranFill)"/>
 <g stroke="#e0c98e" stroke-width=".5">
@@ -369,8 +351,6 @@ section[id],.event[id]{scroll-margin-top:74px;}
 </g>
 <circle r="3.4" fill="#cdb066"/><circle r="1.6" fill="#a98a3f"/>
 </g>
-
-<!-- ===== ANÉMONE (coeur sombre) ===== -->
 <g id="anem">
 <g fill="url(#anemPetal)" stroke="#e3d6bf" stroke-width=".5">
 <ellipse cx="0" cy="-14" rx="7.5" ry="13"/><ellipse cx="0" cy="-14" rx="7.5" ry="13" transform="rotate(45)"/>
@@ -381,10 +361,7 @@ section[id],.event[id]{scroll-margin-top:74px;}
 <circle r="7" fill="url(#anemCore)"/>
 <g fill="#3a2f1f"><circle cx="0" cy="-4.5" r="1"/><circle cx="4.3" cy="-1.4" r="1"/><circle cx="2.6" cy="3.6" r="1"/><circle cx="-2.6" cy="3.6" r="1"/><circle cx="-4.3" cy="-1.4" r="1"/><circle cx="0" cy="0" r="1.4"/></g>
 </g>
-
-<!-- ===== BOUQUET COMPOSÉ ===== -->
 <g id="bouquet">
-<!-- verdure d'arrière-plan -->
 <use href="#eucaSprig" transform="translate(150 124) rotate(150) scale(1.32)"/>
 <use href="#eucaSprig" transform="translate(112 56) rotate(96) scale(1.16)"/>
 <use href="#eucaSprig" transform="translate(220 84) rotate(208) scale(1.08)"/>
@@ -394,13 +371,11 @@ section[id],.event[id]{scroll-margin-top:74px;}
 <use href="#eucaSeed" transform="translate(128 94) rotate(20) scale(1.08)"/>
 <use href="#eucaSeed" transform="translate(204 104) rotate(166) scale(.98)"/>
 <use href="#eucaSeed" transform="translate(168 148) rotate(58) scale(.88)"/>
-<!-- gypsophile -->
 <use href="#gypSpray" transform="translate(112 110) rotate(-8) scale(1.24)"/>
 <use href="#gypSpray" transform="translate(208 118) rotate(10) scale(1.08)"/>
 <use href="#gypSpray" transform="translate(158 72) rotate(0) scale(.98)"/>
 <use href="#gypSpray" transform="translate(182 146) rotate(16) scale(.92)"/>
 <use href="#gypSpray" transform="translate(134 134) rotate(-18) scale(.82)"/>
-<!-- FLEURS FOCALES -->
 <use href="#rose"  transform="translate(150 110) scale(1.18)"/>
 <use href="#rose"  transform="translate(196 96) scale(.82)"/>
 <use href="#ranun" transform="translate(122 96) scale(1.0)"/>
@@ -408,14 +383,12 @@ section[id],.event[id]{scroll-margin-top:74px;}
 <use href="#anem"  transform="translate(160 142) scale(.86)"/>
 <use href="#anem"  transform="translate(212 118) scale(.66)"/>
 <use href="#ranun" transform="translate(132 130) scale(.62)"/>
-<!-- quelques brins par-dessus pour la profondeur -->
 <use href="#gypSpray" transform="translate(176 100) rotate(4) scale(.7)"/>
 <use href="#eucaSprig" transform="translate(150 118) rotate(248) scale(.7)" opacity=".9"/>
 </g>
 </defs>
 </svg>
 
-<!-- ================= NAVIGATION ================= -->
 <nav class="topnav">
 <a href="#hero" class="nav-mono">Eyal</a>
 <div class="nav-links">
@@ -426,7 +399,6 @@ section[id],.event[id]{scroll-margin-top:74px;}
 </div>
 </nav>
 
-<!-- ================= COVER ================= -->
 <div id="cover">
 <svg class="env" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
 <defs>
@@ -463,26 +435,31 @@ section[id],.event[id]{scroll-margin-top:74px;}
 <radialGradient id="waxDisc" cx="44%" cy="40%" r="70%">
 <stop offset="0%" stop-color="#e7c573"/><stop offset="100%" stop-color="#a87d34"/>
 </radialGradient>
+<radialGradient id="waxDisc2" cx="44%" cy="40%" r="70%">
+<stop offset="0%" stop-color="#dcb662"/><stop offset="100%" stop-color="#96702c"/>
+</radialGradient>
 <linearGradient id="starHi" x1="0" y1="0" x2="1" y2="1">
 <stop offset="0" stop-color="#fbe6b4"/><stop offset="1" stop-color="#b78a3c"/>
 </linearGradient>
 <filter id="waxBlur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5"/></filter>
 </defs>
-<path d="M100 18 C 122 15 140 26 151 43 C 161 58 178 66 181 84 C 184 101 176 117 169 131 C 162 146 167 165 150 173 C 134 180 116 173 99 177 C 80 181 61 185 48 171 C 35 158 40 140 32 124 C 23 107 15 91 22 74 C 29 58 45 52 58 41 C 72 30 80 21 100 18 Z" fill="#5a4220" opacity=".4" filter="url(#waxBlur)" transform="translate(5 8)"/>
-<path d="M100 14 C 124 11 141 23 152 41 C 163 57 181 64 184 83 C 187 102 178 119 170 134 C 162 149 169 168 150 176 C 133 183 115 175 97 179 C 77 183 57 187 44 172 C 31 158 37 139 28 122 C 19 105 11 88 19 71 C 26 55 44 49 57 38 C 71 27 79 17 100 14 Z" fill="url(#waxFill)" stroke="#6e5020" stroke-width="1.2"/>
-<g fill="url(#waxFill)" stroke="#6e5020" stroke-width=".8">
-<circle cx="178" cy="120" r="9"/><circle cx="40" cy="150" r="8"/><circle cx="30" cy="78" r="6"/>
-</g>
-<ellipse cx="74" cy="54" rx="40" ry="20" fill="#fff" opacity=".22"/>
-<path d="M100 30 C 120 28 135 38 145 53 C 154 67 168 74 170 90 C 172 106 164 119 157 132 C 150 145 156 160 140 167 C 126 173 110 166 95 169 C 78 173 62 176 51 163 C 41 151 46 135 39 121 C 31 106 25 92 32 78 C 39 64 54 59 65 50 C 77 41 84 32 100 30 Z" fill="none" stroke="#6b4f1f" stroke-width="2" opacity=".45"/>
-<path d="M100 40 C 117 38 130 47 138 60 C 146 72 158 78 159 92 C 160 106 153 117 147 128 C 141 139 146 152 132 158 C 120 163 106 157 93 160 C 78 163 65 165 55 154 C 46 143 51 129 44 116 C 37 103 33 92 39 80 C 45 68 58 64 68 56 C 79 48 86 41 100 40 Z" fill="url(#waxDisc)"/>
-<path d="M100 40 C 117 38 130 47 138 60 C 146 72 158 78 159 92 C 160 106 153 117 147 128 C 141 139 146 152 132 158 C 120 163 106 157 93 160 C 78 163 65 165 55 154 C 46 143 51 129 44 116 C 37 103 33 92 39 80 C 45 68 58 64 68 56 C 79 48 86 41 100 40 Z" fill="none" stroke="#6b4f1f" stroke-width="1.4" opacity=".4"/>
+<g transform="translate(103,94) scale(1.12) translate(-106,-98)">
+<path d="M188,108 C188,126 181,141 173.6,147 C166,153 156,170 148.5,181.6 C141,190.6 116,188 106,182 C96,188 71,186 66,177.3 C61,170 36,163 29.8,152 C24,143 26,123 30,108 C26,93 28,76 34.1,66.5 C39,58.6 56,46 66.5,39.6 C74,34.6 98,26 106,22 C114,26 136,30 143.5,43.05 C149,53 171,58 176.1,67.5 C182,76 188,93 188,108 Z"
+fill="#5a4220" opacity=".38" filter="url(#waxBlur)"/>
+<path d="M182,100 C182,118 175,133 167.6,139 C160,145 150,162 142.5,173.6 C135,182 110,180 100,174 C90,180 65,178 60,169.3 C55,162 30,155 23.8,144 C18,135 20,115 24,100 C20,85 22,68 28.1,58.5 C33,50 50,38 60.5,31.6 C68,26 92,18 100,14 C108,18 130,22 137.5,35.05 C143,45 165,50 170.1,59.5 C176,68 182,85 182,100 Z"
+fill="url(#waxFill)" stroke="#6e5020" stroke-width="1.2"/>
+<ellipse cx="72" cy="52" rx="38" ry="19" fill="#fff" opacity=".22"/>
+<circle cx="100" cy="100" r="74" fill="url(#waxDisc)"/>
+<circle cx="100" cy="100" r="55" fill="url(#waxDisc2)"/>
+<circle cx="100" cy="100" r="39" fill="url(#waxFill)"/>
+<circle cx="100" cy="100" r="39" fill="none" stroke="#6b4f1f" stroke-width="1.2" opacity=".35"/>
 <g transform="translate(100 100)">
-<g fill="none" stroke="#5a4117" stroke-width="7" stroke-linejoin="round" opacity=".85" transform="translate(1.4 2)">
-<polygon points="0,-38 33,19 -33,19"/><polygon points="0,38 33,-19 -33,-19"/>
+<g fill="none" stroke="#5a4117" stroke-width="4" stroke-linejoin="round" opacity=".85" transform="translate(1 1.4)">
+<polygon points="0,-19 16.5,9.5 -16.5,9.5"/><polygon points="0,19 16.5,-9.5 -16.5,-9.5"/>
 </g>
-<g fill="none" stroke="url(#starHi)" stroke-width="7" stroke-linejoin="round">
-<polygon points="0,-38 33,19 -33,19"/><polygon points="0,38 33,-19 -33,-19"/>
+<g fill="none" stroke="url(#starHi)" stroke-width="4" stroke-linejoin="round">
+<polygon points="0,-19 16.5,9.5 -16.5,9.5"/><polygon points="0,19 16.5,-9.5 -16.5,-9.5"/>
+</g>
 </g>
 </g>
 </svg>
@@ -491,7 +468,6 @@ section[id],.event[id]{scroll-margin-top:74px;}
 </div>
 </div>
 
-<!-- ================= HERO ================= -->
 <section id="hero">
 <svg class="corner tr" viewBox="0 0 300 220"><use href="#bouquet"/></svg>
 <svg class="corner bl" viewBox="0 0 300 220"><use href="#bouquet"/></svg>
@@ -537,7 +513,6 @@ Marseille &nbsp;·&nbsp; 9h00
 </button>
 </section>
 
-<!-- ================= INTRO ================= -->
 <section class="panel" id="intro">
 <div class="wrap reveal">
 <div class="kicker">Mazal Tov</div>
@@ -552,7 +527,6 @@ Marseille &nbsp;·&nbsp; 9h00
 </div>
 </section>
 
-<!-- ================= FAMILLE ================= -->
 <section class="panel cream">
 <svg class="corner tl" viewBox="0 0 300 220" style="opacity:.85"><use href="#bouquet"/></svg>
 <div class="wrap reveal">
@@ -565,7 +539,6 @@ Marseille &nbsp;·&nbsp; 9h00
 </div>
 </section>
 
-<!-- ================= ÉVÉNEMENTS ================= -->
 <section class="panel" id="events">
 <div class="wrap">
 <div class="reveal">
@@ -600,7 +573,6 @@ Marseille &nbsp;·&nbsp; 9h00
 </div>
 </section>
 
-<!-- ================= RSVP ================= -->
 <section id="rsvp">
 <svg class="corner bl" viewBox="0 0 300 220" style="opacity:.8"><use href="#bouquet"/></svg>
 <div class="wrap">
@@ -669,7 +641,6 @@ Marseille &nbsp;·&nbsp; 9h00
 <div class="foot-sub">Avec amour — Famille About · Marseille 2027</div>
 </footer>
 
-<!-- ================= MUSIQUE ================= -->
 <audio id="bgMusic" src="musique.mp3" loop preload="auto"></audio>
 <button class="music-toggle" id="musicToggle" aria-label="Activer ou couper la musique" hidden>
 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 3v10.55A4 4 0 1011 17V7h6V3H9z"/></svg>
